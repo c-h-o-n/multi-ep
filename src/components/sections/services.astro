@@ -1,0 +1,77 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "./content-section.astro";
+import type { FeatureItem } from "~/types";
+
+interface Service {
+  name: string;
+  description: string;
+}
+
+const services: Service[] = [
+  {
+    name: "BONTÁS",
+    description:
+      "Elbontjuk a szükségtelen falakat, felvéssük a burkolatot, vagy a teljes vakolatot, és a törmeléket is elszállítjuk, hogy a leg ideálisabb alapokkal és körülmények között kezdhessük el a lakásfelújítást.",
+  },
+  {
+    name: "KŐMŰVES MUNKÁK",
+    description:
+      "Az új aljzatbetontól az új falak építésén át, teraszt, járdát, kerítést készítünk Önnek, ami csak szükséges a tökéletes végeredmény eléréséhez. van. Csapatunk évente több komplett ház építésén dolgozik, így ezt is bátran ránk bízhatja!",
+  },
+  {
+    name: "GIPSZKARTONOZÁS",
+    description:
+      "lkészítjük álmai álmennyezetét, beépítjük tetőterét, de ha csak egyszerűen könnyűszerkezetes falakra van szüksége, csapatunkra akkor is számíthat!",
+  },
+  {
+    name: "BURKOLÁS",
+    description:
+      "A szakszerű burkolás fontosságát nem kell hangsúlyoznunk, hiszen évekig helyt kell állnia. Burkolóink tökéletes munkát végeznek, így ha jól választott burkolatot, az akár több generációt is ki fog szolgálni.",
+  },
+  {
+    name: "FESTÉS-MÁZOLÁS-TAPÉTÁZÁS",
+    description:
+      "A megfelelő falfelület előkészítése után segítünk a megfelelő színek, alapanyagok összeválogatásában is, hogy otthona az Önnek legmegfelelőbb hangulatot árassza.",
+  },
+  {
+    name: "VILLANYSZERELÉS",
+    description:
+      "Segítünk Önnek átgondolni, hová milyen csatlakozók szükségesek, hogy a beköltözés után már sehol ne lógjanak elosztók és szükségtelen kábelek.",
+  },
+  {
+    name: "NYÍLÁSZÁRÓ BEÉPÍTÉS ÉS CSERE",
+    description:
+      "Elöregedett ablakait, ajtóit cserélné? Vagy újépítésű házába építtetné be őket? Legyen szó fa, műanyag, fém nyílászáró vagy redőny, beépítéséről a tökéletes munkát garantáljuk!",
+  },
+  {
+    name: "TETŐFEDÉS ÉS EGYÉB ÁCS MUNKÁK",
+    description:
+      "Új tető, vagy a régi cseréje sem akadály. Szakembereink mindkettőben jártasak! Ezenkívül fából bármit megvalósítunk Önnek: előtetőt, teraszt, galériát, lépcsőt és mindent, ami fa.",
+  },
+  {
+    name: "SZIGETELÉS",
+    description:
+      "Legyen szó beltéri, tetőtéri vagy homlokzati szigetelésről, természetese, hogy ez is a korszerűsítés és a hatékonyság növelésének a része.",
+  },
+];
+---
+
+<ContentSection title="Szolgáltatásaink" id="szolgaltatasaink">
+  <Fragment slot="lead">
+    Legyen szó akár részleges-. vagy teljes körű
+    <span class="text-primary">felújításról</span>,
+    <span class="text-primary">átalakításról</span> vagy
+    <span class="text-primary">építésről</span>, ránk számíthat!
+  </Fragment>
+  <div class="flex flex-col container space-y-2 divide-y-2 sm:divide-y-0">
+    {
+      services.map((service, index) => (
+        <div class={index % 2 ? "text-right" : "text-left"}>
+          <h1 class="font-bold pt-2 sm:underline sm:underline-offset-4">{service.name}</h1>
+          <p>{service.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</ContentSection>

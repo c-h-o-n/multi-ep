@@ -1,11 +1,48 @@
 ---
-import CompatibilityList from "~/components/compatibility-list.astro";
 import ContentSection from "./content-section.astro";
-import type { CompatibilityItem } from "~/types";
+import { Picture } from "@astrojs/image/components";
+
+import ref01 from "~/assets/ref01.jpg";
+import ref02 from "~/assets/ref02.jpg";
+import ref03 from "~/assets/ref03.jpg";
+import ref04 from "~/assets/ref04.jpg";
 ---
 
 <ContentSection title="Referenciáink" id="referenciak">
-  <Fragment slot="lead">
-    Kövessen minket közöségi média felületeinken is, ahol nyomon követheti munkáinkat, elkészült projektjeinket és aktuális szakmai információkat is találhat.
-  </Fragment>
+  <div class="text-center text-sm">
+    Kövessen minket közöségi média felületeinken is, ahol nyomon követheti
+    munkáinkat, elkészült projektjeinket és aktuális szakmai információkat is
+    találhat.
+  </div>
+
+  <div class="block space-y-3 sm:gap-4 sm:flex">
+    <Picture
+      id="logo"
+      src={ref01}
+      alt="logo"
+      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+      widths={[450, 800]}
+    />
+    <Picture
+      id="logo"
+      src={ref02}
+      alt="logo"
+      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+      widths={[450, 800]}
+    />
+    <Picture
+      id="logo"
+      src={ref03}
+      alt="logo"
+      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+      widths={[450, 800]}
+    />
+    <Picture
+      id="logo"
+      src={ref04}
+      alt="logo"
+      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+      widths={[450, 800]}
+    />
+  </div>
 </ContentSection>

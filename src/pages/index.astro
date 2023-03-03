@@ -11,17 +11,10 @@ import GetOffer from '~/components/sections/get-offer.astro'
 // styles
 import "@fontsource/inter/variable.css";
 import "~/styles/index.css";
-
+// TODO personalize this to multiep
 const { generator, site } = Astro;
 const image = new URL("social.jpg", site);
 const description = "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
-/* TODO
-    Splash section (carousel)
-    Szolgáltatásaink section
-
-    Contact section
-    Footer (social media)
-*/
 ---
 
 <!DOCTYPE html>
@@ -32,7 +25,7 @@ const description = "Build fast websites, faster. Astro is a new kind of site bu
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="generator" content={generator} />
 
-    <title>Astro Landing Page</title>
+    <title>Multi-ép</title>
     <meta name="description" content={description} />
 
     <!-- social media -->
@@ -53,7 +46,7 @@ const description = "Build fast websites, faster. Astro is a new kind of site bu
         const prefersDark = window.matchMedia(
           "(prefers-color-scheme: dark)"
         ).matches;
-        document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
+        document.documentElement.dataset.theme = "light"; // TODO: use ternary for dark mode
       }
 
       window

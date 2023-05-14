@@ -1,48 +1,66 @@
 ---
 import ContentSection from "./content-section.astro";
-import { Picture } from "@astrojs/image/components";
+import SocialMedia from "../social-media.astro";
+import { Image } from '@astrojs/image/components';
 
-import ref01 from "~/assets/ref01.jpg";
-import ref02 from "~/assets/ref02.jpg";
-import ref03 from "~/assets/ref03.jpg";
-import ref04 from "~/assets/ref04.jpg";
+ 
+
+import Ref01 from '~/assets/ref-01.webp';
+import Ref02 from '~/assets/ref-02.webp';
+import Ref03 from '~/assets/ref-03.webp';
+import Ref04 from '~/assets/ref-04.webp';
+
+const images:ImageMetadata[] = [Ref01, Ref02, Ref03, Ref04];
 ---
 
 <ContentSection title="Referenciáink" id="referenciak">
-  <div class="text-center text-sm">
+  <Fragment slot="lead">
     Kövessen minket közöségi média felületeinken is, ahol nyomon követheti
     munkáinkat, elkészült projektjeinket és aktuális szakmai információkat is
     találhat.
-  </div>
+  </Fragment>
+  <SocialMedia />
+  <div class="container">
 
-  <div class="block space-y-3 sm:gap-4 sm:flex">
-    <Picture
-      id="logo"
-      src={ref01}
-      alt="logo"
-      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-      widths={[450, 800]}
-    />
-    <Picture
-      id="logo"
-      src={ref02}
-      alt="logo"
-      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-      widths={[450, 800]}
-    />
-    <Picture
-      id="logo"
-      src={ref03}
-      alt="logo"
-      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-      widths={[450, 800]}
-    />
-    <Picture
-      id="logo"
-      src={ref04}
-      alt="logo"
-      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-      widths={[450, 800]}
-    />
+    <div class="glider-contain">
+      <div class="glider max-h-[1001px]">
+        {
+          images.map((image, index) => (
+            <div class="h-10">
+              <Image src={image} alt={`referencia kép ${index + 1}`}  format={'webp'}/>
+              </div>
+              ))
+            }
+      </div>
+      
+      <button aria-label="Previous" class="glider-prev !top-0 !bottom-[26px] !mx-auto">«</button>
+      <button aria-label="Next" class="glider-next  !top-0 !bottom-[26px] !mx-auto">»</button>
+      <div role="tablist" class="dots"></div>
+    </div>
   </div>
-</ContentSection>
+  </ContentSection>
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+
+<style is:global>
+  .gilder-contain {
+    padding: 0 200px
+  }
+  .glider-dot.active {
+    background-color: #be7f27 !important;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+<script type="module">
+  new Glider(document.querySelector(".glider"), {
+    slidesToShow: 1,
+    rewind: true,
+    slidesToScroll: 1,
+    dots: ".dots",
+    arrows: {
+      prev: ".glider-prev",
+      next: ".glider-next",
+    },
+  });
+</script>

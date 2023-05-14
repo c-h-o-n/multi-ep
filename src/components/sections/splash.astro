@@ -8,14 +8,17 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
 ---
 
 <section class="relative h-full bg-default">
+  <div id="splash-bg-fallback" class="absolute inset-0   opacity-40">
+
+  </div>
   <div class="relative grid h-full place-items-center sm:grid-cols-2">
     <div class="w-2/3 max-w-lg  self-center sm:w-10/12 sm:self-auto sm:justify-self-center">
-      <Picture src={logo} alt="logo" sizes={sizes} widths={widths} />
+      <Picture src={logo} alt="logo" sizes={sizes} widths={widths} format={'png'} />
     </div>
 
     <div class="flex flex-col gap-2 self-center p-4 text-center font-bold tracking-tighter md:text-lg lg:text-2xl sm:gap-4 sm:self-auto sm:justify-self-start">
       <h2 class="">
-        Célunk, hogy a lehető <span class="text-primary">leggyorsabban</span>, mégis <span class="text-primary">tökéletes</span> minőségben végezzük el otthona, ingatlanja <span class="text-primary">felújítását</span>, vagy akár új otthona <span class="text-primary">megépítésé</span>,
+        Célunk, hogy a lehető <span class="text-primary">leggyorsabban</span>, mégis <span class="text-primary">tökéletes</span> minőségben végezzük el otthona, ingatlanja <span class="text-primary">felújítását</span>, vagy akár új otthona <span class="text-primary">megépítését</span>,
         mert számunkra <span class="text-primary">fontos</span> Ügyfeleink  <span class="text-primary">elégedettsége</span>.
       </h2>
       <h2 class="">

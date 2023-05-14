@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon";
+
+const links = [
+  {
+    url: "https://www.facebook.com/profile.php?id=100086153959491",
+    icon: "mdi:facebook",
+  },
+  {
+    url: "https://www.instagram.com/multiep.kft/",
+    icon: "mdi:instagram",
+  },
+];
+---
+
+<div class="flex justify-center">
+  {
+    links.map((link) => (
+      <a href={link.url}>
+        <Icon name={link.icon} class="h-12" />
+      </a>
+    ))
+  }
+</div>

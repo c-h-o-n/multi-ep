@@ -1,7 +1,7 @@
 ---
 import ContentSection from "./content-section.astro";
 import SocialMedia from "../social-media.astro";
-import { Image } from '@astrojs/image/components';
+import { Image, Picture } from '@astrojs/image/components';
 
  
 
@@ -20,14 +20,15 @@ const images:ImageMetadata[] = [Ref01, Ref02, Ref03, Ref04];
     találhat.
   </Fragment>
   <SocialMedia />
-  <div class="container">
+  
+  <div class="container xl:px-64 md:px-32">
 
     <div class="glider-contain">
-      <div class="glider max-h-[1001px]">
+      <div class="glider">
         {
           images.map((image, index) => (
             <div class="h-10">
-              <Image src={image} alt={`referencia kép ${index + 1}`}  format={'webp'}/>
+              <Picture src={image} alt={`referencia kép ${index + 1}`} aspectRatio="3000:2002" widths={[400, 800, 1200]}  sizes="" format={'webp'}/>
               </div>
               ))
             }
